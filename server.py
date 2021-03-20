@@ -17,7 +17,8 @@ def pred():
     if request.method == 'POST':
         file = request.files['image']
         if not file:
-            return jsonify({'1st': 'ERROR', '2nd': 'ERROR'})
+            return jsonify({'confidence': 'ERROR'})
+        categories = ['Pepero_Amond', 'Pepero_Crunch', 'Pepero_Original']
         # 이미지 픽셀 정보 읽기
         img = Image.open(file)
         img = img.convert("RGB")
@@ -26,9 +27,10 @@ def pred():
         img = img.reshape(1, 224, 224, 3)
 
         # 이미지 예측
-        prediction = model.predict(img)
-        label = str(np.squeeze(prediction))
-        return jsonify({'1st': label})
+        prediction_label = model.predict_classes(img)
+        prediction_confidence = model.predict(img)
+        confidence = str(max(np.squeeze(prediction_confidence)))
+        return jsonify({'product_name': categories[prediction_label[0]], 'product_confidence': confidence})
     if request.method == 'GET':
         return 'get!'
 
