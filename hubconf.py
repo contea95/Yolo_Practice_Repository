@@ -32,7 +32,7 @@ def create(name, pretrained=True, channels=3, classes=3, autoshape=True, verbose
         YOLOv5 pytorch model
     """
     set_logging(verbose=verbose)
-    fname = Path(name).with_suffix('.pt')  # checkpoint filename
+    fname = Path(name).with_suffix('.pth')  # checkpoint filename
     try:
         if pretrained and channels == 3 and classes == 3:
             # download/load FP32 model
@@ -67,7 +67,7 @@ def create(name, pretrained=True, channels=3, classes=3, autoshape=True, verbose
         raise Exception(s) from e
 
 
-def custom(path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pt', autoshape=True, verbose=True):
+def custom(path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pth', autoshape=True, verbose=True):
     # YOLOv5 custom or local model
     return create(path, autoshape=autoshape, verbose=verbose)
 
