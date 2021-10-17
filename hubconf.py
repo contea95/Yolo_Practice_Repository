@@ -67,7 +67,7 @@ def create(name, pretrained=True, channels=3, classes=3, autoshape=True, verbose
         raise Exception(s) from e
 
 
-def custom(path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pth', autoshape=True, verbose=True):
+def custom(path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pt', autoshape=True, verbose=True):
     # YOLOv5 custom or local model
     return create(path, autoshape=autoshape, verbose=verbose)
 
@@ -75,7 +75,7 @@ def custom(path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_m
 if __name__ == '__main__':
     # model = create(name='yolov5s', pretrained=True, channels=3, classes=80, autoshape=True, verbose=True)  # pretrained
     model = custom(
-        path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pth')  # custom
+        path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pt')  # custom
 
     # Verify inference
     import cv2
