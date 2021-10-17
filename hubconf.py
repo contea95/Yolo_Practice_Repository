@@ -75,7 +75,7 @@ def custom(path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_m
 if __name__ == '__main__':
     # model = create(name='yolov5s', pretrained=True, channels=3, classes=80, autoshape=True, verbose=True)  # pretrained
     model = custom(
-        path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pt')  # custom
+        path='/Users/han/.cache/torch/hub/contea95_Yolo_Practice_Repository_master/model/best.pth')  # custom
 
     # Verify inference
     import cv2
